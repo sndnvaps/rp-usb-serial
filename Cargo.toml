@@ -1,0 +1,46 @@
+[package]
+name = "rp-usb-serial"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.77"
+documentation = "https://docs.rs/rp-usb-serial"
+readme = "README.md"
+keywords = [
+    "rp2040-hal",
+    "rp235x-hal",
+]
+categories = [
+    "embedded",
+    "no-std",
+]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/sndnvaps/rp-usb-serial"
+
+
+[dependencies]
+cortex-m = { version = "0.7.2" }
+cortex-m-rt = "0.7"
+rp2040-hal = { version = "0.12.0",optional = true, features = [
+    "critical-section-impl",
+    "rt",
+    "defmt",
+] }
+
+rp235x-hal = { version = "0.4.0", optional = true, features = [
+    "critical-section-impl",
+    "rt",
+    "defmt",
+] }
+
+
+usb-device = "0.3"
+usbd-serial = "0.2"
+critical-section = { version = "1.2.0"}
+static_cell = "2.1.1"
+portable-atomic = { version = "1.13.1", default-features = false, features = [ "critical-section"] }
+heapless = "0.9.3"
+
+[features]
+default = ["rp2040"]
+rp2040 = ["rp2040-hal"]
+rp2350 = ["rp235x-hal"]

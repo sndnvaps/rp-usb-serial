@@ -195,10 +195,18 @@ fn USBCTRL_IRQ() {
 }
 
 // 中断里只做协议poll，保证USB不死
+/*
 #[cfg(feature = "rp2350")]
 interrupt!(USBCTRL_IRQ, usbctrl_irq);
 #[cfg(feature = "rp2350")]
 fn usbctrl_irq() {
+    RpUsbConsole::force_poll();
+    RpUsbConsole::flush_tx();
+}
+*/
+#[cfg(feature = "rp2350")]
+#[interrupt]
+fn USBCTRL_IRQ() {
     RpUsbConsole::force_poll();
     RpUsbConsole::flush_tx();
 }

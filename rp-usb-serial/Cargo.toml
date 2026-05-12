@@ -1,0 +1,82 @@
+[package]
+name = "rp-usb-serial"
+version = "0.3.0"
+edition = "2021"
+rust-version = "1.77"
+documentation = "https://docs.rs/rp-usb-serial"
+readme = "README.md"
+author = ["sndnvaps <admin@sndnvaps.com>"]
+description = "USB CDC logging for rp2040&rp2350 with rp2040-hal & rp235x-hal"
+build = false
+autolib = false
+keywords = [
+    "embedded",
+    "hal",
+    "raspberry-pi",
+    "riscv32",
+    "rp2040",
+    "rp2350",
+    "embedded-hal",
+]
+categories = [
+    "embedded",
+    "hardware-support",
+    "no-std",
+]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/sndnvaps/rp-usb-serial"
+
+[package.metadata.docs.rs]
+features = [
+    "rp2040",
+]
+targets = ["thumbv6m-none-eabi"]
+
+[features]
+default = ["rp2040"]
+rp2040 = ["rp2040-hal"]
+rp2350 = ["rp235x-hal"]
+
+
+[lib]
+name = "rp_usb_serial"
+path = "src/lib.rs"
+
+[dependencies]
+rp2040-hal = { version = "0.12.0",optional = true, features = [
+    "critical-section-impl",
+    "rt",
+    "defmt",
+] }
+
+rp235x-hal = { version = "0.4.0", optional = true, features = [
+    "critical-section-impl",
+    "rt",
+    "defmt",
+] }
+
+
+
+usb-device = "0.3"
+usbd-serial = "0.2"
+critical-section = { version = "1.2.0"}
+static_cell = "2.1.1"
+portable-atomic = { version = "1.13.1", default-features = false, features = [ "critical-section"] }
+heapless = "0.9.3"
+
+# For RP2040
+[target.'thumbv6m-none-eabi'.dependencies]
+cortex-m = "0.7.2"
+cortex-m-rt = "0.7"
+
+# For RP2350 ARM
+[target.'thumbv8m.main-none-eabihf'.dependencies]
+cortex-m = "0.7.2"
+cortex-m-rt = "0.7"
+
+# For RP2350 RISCV32
+[target.'riscv32imac-unknown-none-elf'.dependencies]
+riscv = "0.11.1"
+riscv-rt = "0.12.2"
+
+

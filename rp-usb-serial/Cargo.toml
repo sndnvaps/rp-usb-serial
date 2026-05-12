@@ -1,6 +1,6 @@
 [package]
 name = "rp-usb-serial"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 rust-version = "1.77"
 documentation = "https://docs.rs/rp-usb-serial"
@@ -29,7 +29,7 @@ features = [
     "rp2040",
     "rp2350",
 ]
-targets = ["thumbv6m-none-eabi"]
+default-target = "thumbv6m-none-eabi"
 
 [features]
 default = ["rp2040"]
@@ -41,41 +41,66 @@ rp2350 = ["rp235x-hal"]
 name = "rp_usb_serial"
 path = "src/lib.rs"
 
-[dependencies]
-rp2040-hal = { version = "0.12.0",optional = true, features = [
+
+[dependencies.rp2040-hal]
+version = "0.12.0"
+optional = true
+features = [
     "critical-section-impl",
     "rt",
     "defmt",
-] }
+]
 
-rp235x-hal = { version = "0.4.0", optional = true, features = [
+[dependencies.rp235x-hal]
+version = "0.4.0"
+optional = true
+features = [
     "critical-section-impl",
     "rt",
     "defmt",
-] }
+] 
 
 
 
-usb-device = "0.3"
-usbd-serial = "0.2"
-critical-section = { version = "1.2.0"}
-static_cell = "2.1.1"
-portable-atomic = { version = "1.13.1", default-features = false, features = [ "critical-section"] }
-heapless = "0.9.3"
+[dependencies.usb-device]
+version = "0.3"
+
+[dependencies.usbd-serial]
+version  = "0.2"
+
+[dependencies.critical-section]
+version  =  "1.2.0"
+
+[dependencies.static_cell]
+version  = "2.1.1"
+
+[dependencies.portable-atomic]
+version = "1.13.1" 
+default-features = false
+features = [ "critical-section"]
+
+[dependencies.heapless]
+version  = "0.9.3"
 
 # For RP2040
-[target.'thumbv6m-none-eabi'.dependencies]
-cortex-m = "0.7.2"
-cortex-m-rt = "0.7"
+[target."thumbv6m-none-eabi".dependencies.cortex-m]
+version = "0.7.2"
+
+[target."thumbv6m-none-eabi".dependencies.cortex-m-rt]
+version = "0.7"
 
 # For RP2350 ARM
-[target.'thumbv8m.main-none-eabihf'.dependencies]
-cortex-m = "0.7.2"
-cortex-m-rt = "0.7"
+[target."thumbv8m.main-none-eabihf".dependencies.cortex-m]
+version = "0.7.2"
+
+[target."thumbv8m.main-none-eabihf".dependencies.cortex-m-rt]
+version = "0.7"
 
 # For RP2350 RISCV32
-[target.'riscv32imac-unknown-none-elf'.dependencies]
-riscv = "0.11.1"
-riscv-rt = "0.12.2"
+[target.riscv32imac-unknown-none-elf.dependencies.riscv]
+version = "0.11"
+
+[target.riscv32imac-unknown-none-elf.dependencies.riscv-rt]
+version = "0.12"
 
 

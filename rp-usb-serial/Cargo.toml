@@ -29,6 +29,7 @@ repository = "https://github.com/sndnvaps/rp-usb-serial"
 [package.metadata.docs.rs]
 features = [
     "rp2040",
+    "rp2350",
 ]
 targets = ["thumbv6m-none-eabi"]
 

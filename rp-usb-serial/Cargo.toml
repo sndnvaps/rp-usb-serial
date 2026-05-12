@@ -1,6 +1,6 @@
 [package]
 name = "rp-usb-serial"
-version = "0.3.2"
+version = "0.3.4"
 edition = "2021"
 rust-version = "1.77"
 documentation = "https://docs.rs/rp-usb-serial"
@@ -27,15 +27,13 @@ repository = "https://github.com/sndnvaps/rp-usb-serial"
 [package.metadata.docs.rs]
 features = [
     "rp2040",
-    "rp2350",
 ]
-default-targets = "thumbv6m-none-eabi"
-targets = ["thumbv6m-none-eabi","thumbv8m.main-none-eabihf","riscv32imac-unknown-none-elf"]
+targets = ["thumbv6m-none-eabi"]
 
 [features]
 default = ["rp2040"]
-rp2040 = ["rp2040-hal"]
-rp2350 = ["rp235x-hal"]
+rp2040 = ["dep:rp2040-hal"]
+rp2350 = ["dep:rp235x-hal"]
 
 
 [lib]
@@ -84,24 +82,24 @@ features = [ "critical-section"]
 version  = "0.9.3"
 
 # For RP2040
-[target.thumbv6m-none-eabi.dependencies.cortex-m]
+[target.'thumbv6m-none-eabi'.dependencies.cortex-m]
 version = "0.7.2"
 
-[target.thumbv6m-none-eabi.dependencies.cortex-m-rt]
+[target.'thumbv6m-none-eabi'.dependencies.cortex-m-rt]
 version = "0.7"
 
 # For RP2350 ARM
-[target.thumbv8m.main-none-eabihf.dependencies.cortex-m]
+[target.'thumbv8m.main-none-eabihf'.dependencies.cortex-m]
 version = "0.7.2"
 
-[target.thumbv8m.main-none-eabihf.dependencies.cortex-m-rt]
+[target.'thumbv8m.main-none-eabihf'.dependencies.cortex-m-rt]
 version = "0.7"
 
 # For RP2350 RISCV32
-[target.riscv32imac-unknown-none-elf.dependencies.riscv]
+[target.'riscv32imac-unknown-none-elf'.dependencies.riscv]
 version = "0.11"
 
-[target.riscv32imac-unknown-none-elf.dependencies.riscv-rt]
+[target.'riscv32imac-unknown-none-elf'.dependencies.riscv-rt]
 version = "0.12"
 
 

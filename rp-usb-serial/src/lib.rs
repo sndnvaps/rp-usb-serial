@@ -36,8 +36,8 @@ compile_error!("features `rp2040` and `rp2350` cannot be enabled at the same tim
 #[cfg(not(any(feature = "rp2040", feature = "rp2350")))]
 compile_error!("either feature `rp2040` or `rp2350` must be enabled");
 
-//#[cfg(all(feature = "rp2040", not(target_arch = "arm")))]
-//compile_error!("`rp2040` only supports ARM targets");
+#[cfg(all(feature = "rp2040", not(target_arch = "arm")))]
+compile_error!("`rp2040` only supports ARM targets");
 
 #[cfg(all(
     feature = "rp2350",

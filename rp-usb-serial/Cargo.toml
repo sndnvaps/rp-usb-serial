@@ -1,11 +1,11 @@
 [package]
 name = "rp-usb-serial"
-version = "0.3.1"
+version = "0.3.2"
 edition = "2021"
 rust-version = "1.77"
 documentation = "https://docs.rs/rp-usb-serial"
 readme = "README.md"
-author = ["sndnvaps <admin@sndnvaps.com>"]
+authors = ["sndnvaps <admin@sndnvaps.com>"]
 description = "USB CDC logging for rp2040&rp2350 with rp2040-hal & rp235x-hal"
 build = false
 autolib = false
@@ -29,7 +29,8 @@ features = [
     "rp2040",
     "rp2350",
 ]
-default-target = "thumbv6m-none-eabi"
+default-targets = "thumbv6m-none-eabi"
+targets = ["thumbv6m-none-eabi","thumbv8m.main-none-eabihf","riscv32imac-unknown-none-elf"]
 
 [features]
 default = ["rp2040"]
@@ -83,17 +84,17 @@ features = [ "critical-section"]
 version  = "0.9.3"
 
 # For RP2040
-[target."thumbv6m-none-eabi".dependencies.cortex-m]
+[target.thumbv6m-none-eabi.dependencies.cortex-m]
 version = "0.7.2"
 
-[target."thumbv6m-none-eabi".dependencies.cortex-m-rt]
+[target.thumbv6m-none-eabi.dependencies.cortex-m-rt]
 version = "0.7"
 
 # For RP2350 ARM
-[target."thumbv8m.main-none-eabihf".dependencies.cortex-m]
+[target.thumbv8m.main-none-eabihf.dependencies.cortex-m]
 version = "0.7.2"
 
-[target."thumbv8m.main-none-eabihf".dependencies.cortex-m-rt]
+[target.thumbv8m.main-none-eabihf.dependencies.cortex-m-rt]
 version = "0.7"
 
 # For RP2350 RISCV32

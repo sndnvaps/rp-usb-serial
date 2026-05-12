@@ -100,7 +100,7 @@ It provides a simple global USB serial interface for logging, formatted printing
 #default features is rp2040 
 rp-usb-serial = "0.3.0"
 ```
-[Example for rp2040 arm](https://github.com/sndnvaps/rp-usb-serial/rp2040-usb-console-example)
+[Example for rp2040 arm](../rp2040-usb-console-example)
 
 ### Example for rp2350 arm
 ### RP2350平台使用例子
@@ -109,7 +109,7 @@ rp-usb-serial = "0.3.0"
 rp-usb-serial = {version = "0.3.0",default-features = false, features = [ "rp2350"]}
 ```
 
-[Example for rp2350 arm](https://github.com/sndnvaps/rp-usb-serial/rp2350-usb-console-example)
+[Example for rp2350 arm](../rp2350-usb-console-example)
 
 
 ### Example for rp2350 riscv32
@@ -119,5 +119,5 @@ rp-usb-serial = {version = "0.3.0",default-features = false, features = [ "rp235
 rp-usb-serial = {version = "0.3.0",default-features = false, features = [ "rp2350"]}
 ```
 
-[Example for rp2350 riscv32](https://github.com/sndnvaps/rp-usb-serial/rp2350-riscv32-usb-console-example)
+[Example for rp2350 riscv32](../rp2350-riscv32-usb-console-example)
 

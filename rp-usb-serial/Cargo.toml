@@ -10,8 +10,6 @@ description = "USB CDC logging for rp2040&rp2350 with rp2040-hal & rp235x-hal"
 build = false
 autolib = false
 keywords = [
-    "embedded",
-    "hal",
     "raspberry-pi",
     "riscv32",
     "rp2040",

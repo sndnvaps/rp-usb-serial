@@ -1,13 +1,11 @@
 [package]
 edition = "2021"
-name = "rp2350-usb-console"
+name = "rp2350-usb-Echo-console"
 version = "0.5.0"
 license = "MIT OR Apache-2.0"
 rust-version = "1.77"
 
 [dependencies]
-cortex-m = { version = "0.7.2" }
-cortex-m-rt = "0.7"
 embedded-hal = {version = "1.0.0"}
 panic-halt = "1.0.0"
 rp235x-hal = { version = "0.4.0", features = [
@@ -16,15 +14,17 @@ rp235x-hal = { version = "0.4.0", features = [
     "defmt",
 ] }
 
-#fugit = "0.3.5"
-
-
 critical-section = { version = "1.2.0"}
 static_cell = "2.1.1"
 portable-atomic = { version = "1.13.1", default-features = false, features = [ "critical-section"] }
 
 
-rp-usb-serial = { version = "0.3.4", default-features = false, features = [ "rp2350"] }
+rp-usb-serial = { version = "0.4", default-features = false, features = [ "rp2350"]}
+
+[target.'riscv32imac-unknown-none-elf'.dependencies]
+riscv = "0.11.1"
+riscv-rt = "0.12.2"
+
 # cargo build/run
 [profile.dev]
 codegen-units = 1

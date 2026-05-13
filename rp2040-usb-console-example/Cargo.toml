@@ -25,7 +25,7 @@ static_cell = "2.1.1"
 portable-atomic = { version = "1.13.1", default-features = false, features = [ "critical-section"] }
 
 
-rp-usb-serial = {path = "../rp-usb-serial",default-features = false, features = [ "rp2040"]}
+rp-usb-serial = { version = "0.3.4" ,default-features = false, features = [ "rp2040"]}
 # cargo build/run
 [profile.dev]
 codegen-units = 1

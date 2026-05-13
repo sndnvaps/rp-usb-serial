@@ -1,6 +1,5 @@
 #![no_std]
 #![no_main]
-
 // For string formatting.
 // The macro for our start-up function
 // A shorter alias for the Peripheral Access Crate, which provides low-level
@@ -93,5 +92,3 @@ fn main() -> ! {
         delay.delay_ms(1000);
     }
 }
-
-//B8ED93AE

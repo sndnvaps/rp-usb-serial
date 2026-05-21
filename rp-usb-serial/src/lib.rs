@@ -149,7 +149,7 @@ const RX_BUF_SIZE: usize = 1024;
 
 /// 是否自动回显主机发来的数据
 /// 为后续 Modbus 调试保留：现在打开，后面可直接改成 false
-const AUTO_ECHO: bool = true;
+const AUTO_ECHO: bool = false;
 
 static USB_ALLOCATOR: StaticCell<UsbBusAllocator<UsbBus>> = StaticCell::new();
 static USB_CONSOLE: Mutex<RefCell<Option<RpUsbConsole>>> = Mutex::new(RefCell::new(None));
